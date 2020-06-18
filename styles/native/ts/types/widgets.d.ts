@@ -1,4 +1,4 @@
-import { ImageStyle, TextStyle, ViewStyle, TextProps } from "react-native";
+import { ImageStyle, TextProps, TextStyle, ViewStyle } from "react-native";
 
 declare type ActivityIndicatorSizeType = "small" | "large";
 
@@ -240,6 +240,23 @@ export interface IntroScreenType {
     paginationBetween?: IntroScreenPaginationType
 }
 
+// Layout
+export interface LayoutType {
+    sidebar: ViewStyle,
+    statusBar: {
+        // Only backgroundColor and barStyle are allowed
+        backgroundColor: string
+        barStyle: string,
+    },
+    header: {
+        container: ViewStyle,
+        title: TextStyle,
+        backButtonText: TextStyle,
+        backButtonIcon: ImageStyle,
+    },
+    container: ViewStyle,
+}
+
 // Layout grid
 export interface LayoutGridType {
     container?: ViewStyle
@@ -340,6 +357,7 @@ interface BasicItemStyle {
     containerStyle?: ViewStyle;
     dividerColor?: string;
 }
+
 interface ItemStyle {
     ellipsizeMode?: TextProps["ellipsizeMode"];
     defaultStyle?: TextStyle;

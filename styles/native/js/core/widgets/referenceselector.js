@@ -1,5 +1,5 @@
 import { input } from "../variables";
-import { DropDown } from "./dropdown.js";
+import { DropDown } from "./dropdown";
 import { TextBox, TextBoxVertical } from "./textbox";
 /*
 
@@ -14,8 +14,14 @@ To customize any core styling, copy the part you want to customize to styles/nat
     Default Class For Mendix Reference Selector Widget
 ========================================================================== */
 export const ReferenceSelector = {
-    container: Object.assign({}, TextBox.container),
-    label: Object.assign({}, TextBox.label),
+    container: {
+        // All ViewStyle properties are allowed
+        ...TextBox.container,
+    },
+    label: {
+        // numberOfLines and all TextStyle properties are allowed
+        ...TextBox.label,
+    },
     pickerIOS: {
         // All ViewStyle properties are allowed
         backgroundColor: input.backgroundColor,
@@ -46,7 +52,10 @@ export const ReferenceSelector = {
         // All TextStyle properties are allowed
         backgroundColor: input.disabledBackgroundColor,
     },
-    validationMessage: Object.assign({}, TextBox.validationMessage),
+    validationMessage: {
+        // All TextStyle properties are allowed
+        ...TextBox.validationMessage,
+    },
 };
 export const ReferenceSelectorVertical = {
     container: TextBoxVertical.container,

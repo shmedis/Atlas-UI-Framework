@@ -13,8 +13,14 @@ To customize any core styling, copy the part you want to customize to styles/nat
     Default Class For Mendix Drop Down Widget
 ========================================================================== */
 export const DropDown = {
-    container: Object.assign({}, TextBox.container),
-    label: Object.assign({}, TextBox.label),
+    container: {
+        // All ViewStyle properties are allowed
+        ...TextBox.container,
+    },
+    label: {
+        // numberOfLines and all TextStyle properties are allowed
+        ...TextBox.label,
+    },
     value: {
         // All TextStyle properties & placeholderTextColor are allowed
         color: input.color,
@@ -24,6 +30,7 @@ export const DropDown = {
         fontFamily: input.fontFamily,
         borderWidth: input.borderWidth,
         borderRadius: input.borderRadius,
+        overflow: "hidden",
         paddingHorizontal: input.paddingHorizontal,
         paddingVertical: input.paddingVertical,
         placeholderTextColor: input.placeholderTextColor,
@@ -32,7 +39,10 @@ export const DropDown = {
         // All TextStyle properties are allowed
         backgroundColor: input.disabledBackgroundColor,
     },
-    validationMessage: Object.assign({}, TextBox.validationMessage),
+    validationMessage: {
+        // All TextStyle properties are allowed
+        ...TextBox.validationMessage,
+    },
     /*  New dropdown styles start */
     valueContainer: {
     // All ViewStyle properties & rippleColor are allowed
@@ -50,9 +60,11 @@ export const DropDown = {
         maxWidth: 500,
         paddingVertical: 6,
         paddingHorizontal: 16,
+        backgroundColor: input.backgroundColor,
     },
     item: {
-    // All TextStlye properties are allowed
+        // All TextStlye properties are allowed
+        color: input.color,
     },
     selectedItem: {
         // All TextStlye properties are allowed
